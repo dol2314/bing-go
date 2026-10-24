@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OG 미리보기 이미지 만들기</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <style>
+    body { padding: 24px; }
+    .tool { max-width: 760px; margin: 0 auto; }
+    .tool h1 { font-size: 22px; }
+    .tool p { font-size: 14px; color: var(--c-muted); line-height: 1.6; }
+    #preview { width: 100%; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,.12); }
+    .row { display: flex; gap: 10px; margin: 16px 0; flex-wrap: wrap; }
+    .row select, .row .btn { width: auto; flex: 1; min-width: 160px; }
+    .row select {
+      padding: 14px; border: 2px solid var(--c-line); border-radius: 14px;
+      background: var(--c-board); font-family: inherit; font-size: 15px; font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tool">
+    <h1>카카오톡 미리보기 이미지 만들기</h1>
+    <p>
+      카카오톡·페이스북에 링크를 보낼 때 뜨는 미리보기 이미지(1200 x 630)를 만듭니다.<br>
+      테마를 고르고 <b>이미지 저장</b>을 누른 뒤, 받은 파일을
+      <code>assets/img/og-default.png</code> 로 덮어쓰면 됩니다.<br>
+      사이트 이름과 주소는 <code>assets/js/config.js</code> 의 값을 그대로 씁니다.
+    </p>
+
+    <div class="row">
+      <select id="themeSelect"></select>
+      <button type="button" class="btn primary" id="saveBtn">이미지 저장</button>
+    </div>
+
+    <img id="preview" alt="미리보기">
+    <canvas id="canvas" width="1200" height="630" style="display:none"></canvas>
+  </div>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/themes.js"></script>
+  <script>
+  (function () {
+    var W = 1200, H = 630;
+    var FONT = '"Pretendard Variable", Pretendard, sans-serif';
+
+    var canvas = document.getElementById('canvas');
+    var preview = document.getElementById('preview');
+    var select = document.getElementById('themeSelect');
+
+    Themes.list().forEach(function (item) {
+      var opt = document.createElement('option');
+      opt.value = item.id;
+      opt.textContent = item.label;
+      select.appendChild(opt);
+    });
+
+    function roundRect(ctx, x, y, w, h, r) {
+      var radius = Math.min(r, w / 2, h / 2);
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(x, y, w, h, radius);
+      } else {
+        ctx.moveTo(x + radius, y);
+        ctx.arcTo(x + w, y, x + w, y + h, radius);
+        ctx.arcTo(x + w, y + h, x, y + h, radius);
+        ctx.arcTo(x, y + h, x, y, radius);
+        ctx.arcTo(x, y, x + w, y, radius);
+        ctx.closePath();
+      }
+    }
+
+    function draw(themeId) {
+      var theme = Themes.get(themeId);
+      var ctx = canvas.getContext('2d');
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = theme.bg;
+      ctx.fillRect(0, 0, W, H);
+
+      /* 배경 장식 */
+      ctx.save();
+      ctx.globalAlpha = 0.5;
+      ctx.fillStyle = theme.soft;
+      ctx.beginPath(); ctx.arc(-40, -30, 220, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(W - 60, H + 40, 260, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+
+      /* 왼쪽 글자 */
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+
+      ctx.fillStyle = theme.title;
+      ctx.font = '800 84px ' + FONT;
+      ctx.fillText('나만의', 92, 258);
+      ctx.fillText('공감 빙고', 92, 360);
+
+      ctx.fillStyle = theme.muted;
+      ctx.font = '700 32px ' + FONT;
+      ctx.fillText('몇 개나 해당되나요?', 96, 420);
+
+      /* 주소 배지 */
+      ctx.font = '700 26px ' + FONT;
+      var host = CONFIG.siteHost();
+      var pw = ctx.measureText(host).width + 48;
+      ctx.fillStyle = theme.accent;
+      roundRect(ctx, 92, 462, pw, 56, 28);
+      ctx.fill();
+      ctx.fillStyle = theme.accentText;
+      ctx.textBaseline = 'middle';
+      ctx.fillText(host, 92 + 24, 462 + 29);
+
+      /* 오른쪽 미니 빙고판 (대각선 3줄) */
+      var bx = 740, by = 125, bs = 380, pad = 22, gap = 16;
+      var cell = (bs - pad * 2 - gap * 2) / 3;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.12)';
+      ctx.shadowBlur = 30;
+      ctx.shadowOffsetY = 10;
+      ctx.fillStyle = theme.board;
+      roundRect(ctx, bx, by, bs, bs, 32);
+      ctx.fill();
+      ctx.restore();
+
+      var checked = { 0: true, 2: true, 4: true, 6: true, 8: true };  // 대각선 2줄
+      for (var i = 0; i < 9; i++) {
+        var cx = bx + pad + (i % 3) * (cell + gap);
+        var cy = by + pad + Math.floor(i / 3) * (cell + gap);
+
+        ctx.fillStyle = checked[i] ? theme.accent : theme.cell;
+        roundRect(ctx, cx, cy, cell, cell, 18);
+        ctx.fill();
+
+        if (checked[i]) {
+          ctx.save();
+          ctx.globalAlpha = 0.5;
+          ctx.strokeStyle = theme.accentText;
+          ctx.lineWidth = 6;
+          ctx.beginPath();
+          ctx.arc(cx + cell / 2, cy + cell / 2, cell * 0.32, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+
+      /* 빙고 배지 */
+      ctx.font = '800 30px ' + FONT;
+      var tag = '2줄 빙고!';
+      var tw = ctx.measureText(tag).width + 44;
+      ctx.fillStyle = theme.accent;
+      roundRect(ctx, bx + bs / 2 - tw / 2, by + bs + 18, tw, 56, 28);
+      ctx.fill();
+      ctx.fillStyle = theme.accentText;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(tag, bx + bs / 2, by + bs + 47);
+
+      preview.src = canvas.toDataURL('image/png');
+    }
+
+    function render() {
+      var text = '나만의공감 빙고몇 개나 해당되나요?2줄 빙고!' + CONFIG.siteHost();
+      var specs = ['700 32px ' + FONT, '800 84px ' + FONT];
+      Promise.all(specs.map(function (s) {
+        return document.fonts.load(s, text).catch(function () {});
+      })).then(function () {
+        return document.fonts.ready;
+      }).then(function () {
+        draw(select.value);
+      });
+    }
+
+    select.addEventListener('change', render);
+
+    document.getElementById('saveBtn').addEventListener('click', function () {
+      canvas.toBlob(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'og-default.png';
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      }, 'image/png');
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

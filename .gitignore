@@ -1,0 +1,14 @@
+# 운영체제가 만드는 파일
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 에디터 설정
+.vscode/
+.idea/
+
+# Vercel CLI 가 만드는 폴더
+.vercel/
+
+# 혹시 npm 을 쓰게 되면
+node_modules/

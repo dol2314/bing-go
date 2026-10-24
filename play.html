@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>공감 빙고 | 나만의 공감 빙고</title>
+  <meta name="description" content="공감되는 칸을 체크하고 내 빙고 결과를 친구에게 공유해 보세요.">
+
+  <!-- 카카오톡·SNS 미리보기 태그
+       ★ 배포 주소가 정해지면 아래 og:url, og:image 의 주소를 바꿔주세요.
+          (미리보기를 읽는 프로그램은 자바스크립트를 실행하지 못해 직접 적어야 합니다) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="나만의 공감 빙고">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://gonggam-bingo.vercel.app/play.html">
+  <meta property="og:title" content="공감 빙고 - 몇 개나 해당되나요?">
+  <meta property="og:description" content="공감되는 칸을 체크하면 결과가 나와요. 친구에게도 보내보세요!">
+  <meta property="og:image" content="https://gonggam-bingo.vercel.app/assets/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Pretendard (상업적 이용 무료, SIL OFL) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header class="topbar">
+      <h1 id="bingoTitle">공감 빙고</h1>
+      <p class="hint">해당되는 칸을 눌러 보세요</p>
+    </header>
+
+    <!-- 빙고판 -->
+    <div id="board" class="board size-5" aria-label="빙고판"></div>
+
+    <!-- 줄 수 / 체크 수 -->
+    <section class="status">
+      <div class="stat">
+        <span class="label">빙고</span>
+        <span class="value"><span id="lineValue">0</span>줄</span>
+      </div>
+      <div class="stat">
+        <span class="label">체크</span>
+        <span class="value"><span id="checkValue">0</span><small>/<span id="totalValue">0</span></small></span>
+      </div>
+    </section>
+
+    <!-- 결과 문구 -->
+    <section class="result-box">
+      <p class="result-title" id="resultTitle"></p>
+      <p class="result-desc" id="resultDesc"></p>
+    </section>
+
+    <!-- 버튼 -->
+    <div class="actions">
+      <button type="button" class="btn primary" id="saveBtn">결과 이미지 저장</button>
+      <button type="button" class="btn kakao" id="kakaoBtn" style="display:none">카카오톡으로 공유</button>
+      <a class="btn ghost" href="create.html">나도 빙고 만들기</a>
+    </div>
+
+    <!-- 광고 자리 (빙고판과 버튼 아래. 아무것도 가리지 않습니다)
+         광고를 넣을 때 data-ad-slot 에 애드센스 광고 단위 ID 를 적으세요. -->
+    <div class="ad-slot" id="adPlayBottom" data-ad-slot=""></div>
+
+  </div>
+
+  <!-- 빙고 알림 -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 결과 이미지 보기 -->
+  <div class="modal" id="imageModal" role="dialog" aria-modal="true">
+    <div class="modal-inner">
+      <div id="modalBody"></div>
+      <div class="actions">
+        <button type="button" class="btn close" id="closeModal">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 결과 이미지를 그리는 캔버스 (화면에는 보이지 않습니다) -->
+  <canvas id="cardCanvas" width="1080" height="1920"></canvas>
+
+  <script src="vendor/lz-string.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/themes.js"></script>
+  <script src="assets/js/bingo.js"></script>
+  <script src="assets/js/results.js"></script>
+  <script src="assets/js/codec.js"></script>
+  <script src="assets/js/share.js"></script>
+  <script src="assets/js/ads.js"></script>
+  <script src="data/templates.js"></script>
+  <script src="assets/js/card-image.js"></script>
+  <script src="assets/js/play.js"></script>
+</body>
+</html>

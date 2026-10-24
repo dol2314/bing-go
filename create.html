@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>빙고 만들기 | 나만의 공감 빙고</title>
+  <meta name="description" content="나만의 공감 빙고를 만들고 링크로 친구에게 공유해 보세요.">
+
+  <!-- 카카오톡·SNS 미리보기 태그
+       ★ 배포 주소가 정해지면 아래 og:url, og:image 의 주소를 바꿔주세요. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="나만의 공감 빙고">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://gonggam-bingo.vercel.app/create.html">
+  <meta property="og:title" content="나만의 공감 빙고 만들기">
+  <meta property="og:description" content="제목과 칸만 채우면 끝. 친구에게 링크로 보내보세요!">
+  <meta property="og:image" content="https://gonggam-bingo.vercel.app/assets/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header class="topbar">
+      <h1>빙고 만들기</h1>
+      <p class="hint">칸을 눌러 바로 입력하세요</p>
+    </header>
+
+    <!-- 제목 -->
+    <div class="field">
+      <span class="field-label">빙고 제목</span>
+      <input type="text" id="titleInput" class="text-input"
+             placeholder="예) 우리 과 공감 빙고" maxlength="40">
+      <p class="counter"><span id="titleCount">0</span>/40</p>
+    </div>
+
+    <!-- 크기 -->
+    <div class="field">
+      <span class="field-label">칸 수</span>
+      <div class="seg" id="sizeSeg">
+        <button type="button" data-size="3">3 x 3</button>
+        <button type="button" data-size="4">4 x 4</button>
+        <button type="button" data-size="5" class="on">5 x 5</button>
+      </div>
+    </div>
+
+    <!-- 가운데 FREE -->
+    <div class="field">
+      <label class="switch-row" id="freeRow">
+        <span>
+          <span class="switch-text">가운데 칸을 FREE 로</span>
+          <span class="switch-sub">홀수 칸(3x3, 5x5)에서만 쓸 수 있어요</span>
+        </span>
+        <input type="checkbox" id="freeCheck" checked>
+      </label>
+    </div>
+
+    <!-- 테마 -->
+    <div class="field">
+      <span class="field-label">색상 테마</span>
+      <div class="chips" id="themeChips"></div>
+    </div>
+
+    <!-- 칸 입력 -->
+    <div class="field">
+      <span class="field-label">칸 내용 <span id="cellHint" class="counter" style="display:inline"></span></span>
+      <div id="board" class="board size-5"></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn primary" id="makeBtn">공유 링크 만들기</button>
+      <a class="btn ghost" href="index.html">처음으로</a>
+    </div>
+
+    <p class="notice" id="notice" style="display:none"></p>
+
+    <!-- 완성된 공유 링크 -->
+    <section class="share-box" id="shareBox" style="display:none">
+      <h2>링크가 만들어졌어요!</h2>
+      <p class="share-url" id="shareUrl"></p>
+      <div class="actions">
+        <button type="button" class="btn primary" id="copyBtn">링크 복사하기</button>
+        <button type="button" class="btn kakao" id="kakaoBtn" style="display:none">카카오톡으로 공유</button>
+        <a class="btn ghost" id="tryBtn" href="#" target="_blank" rel="noopener">내가 먼저 해보기</a>
+      </div>
+    </section>
+
+    <!-- 광고 자리 (입력 영역과 버튼 아래)
+         광고를 넣을 때 data-ad-slot 에 애드센스 광고 단위 ID 를 적으세요. -->
+    <div class="ad-slot" id="adCreateBottom" data-ad-slot=""></div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="vendor/lz-string.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/themes.js"></script>
+  <script src="assets/js/bingo.js"></script>
+  <script src="assets/js/codec.js"></script>
+  <script src="assets/js/share.js"></script>
+  <script src="assets/js/ads.js"></script>
+  <script src="data/templates.js"></script>
+  <script src="assets/js/create.js"></script>
+</body>
+</html>

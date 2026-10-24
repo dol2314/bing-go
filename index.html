@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>나만의 공감 빙고</title>
+  <meta name="description" content="공감 빙고를 직접 만들고 링크 하나로 친구에게 공유하세요. 결과는 이미지로 저장할 수 있어요.">
+
+  <!-- 카카오톡·SNS 미리보기 태그
+       ★ 배포 주소가 정해지면 아래 og:url, og:image 의 주소를 바꿔주세요. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="나만의 공감 빙고">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://gonggam-bingo.vercel.app/">
+  <meta property="og:title" content="나만의 공감 빙고">
+  <meta property="og:description" content="몇 개나 해당되나요? 체크하고 결과를 친구에게 자랑해 보세요!">
+  <meta property="og:image" content="https://gonggam-bingo.vercel.app/assets/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header class="hero">
+      <h1>나만의<br>공감 빙고</h1>
+      <p>칸을 채워 만들고, 링크 하나로 공유하세요</p>
+    </header>
+
+    <div class="actions">
+      <a class="btn primary" href="create.html">빙고 만들기</a>
+    </div>
+
+    <h2 class="section-title">인기 빙고</h2>
+    <div class="tpl-list" id="tplList"></div>
+
+    <!-- 광고 자리 (템플릿 목록 아래)
+         광고를 넣을 때 data-ad-slot 에 애드센스 광고 단위 ID 를 적으세요. -->
+    <div class="ad-slot" id="adHomeBottom" data-ad-slot=""></div>
+
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/themes.js"></script>
+  <script src="assets/js/ads.js"></script>
+  <script src="data/templates.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
