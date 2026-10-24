@@ -9,7 +9,7 @@
    ========================================================= */
 var CONFIG = {
   // 배포 주소. 끝에 / 를 붙이지 마세요.
-  SITE_ORIGIN: 'https://gonggam-bingo.vercel.app',
+  SITE_ORIGIN: 'https://bing-go-iota.vercel.app',
 
   // 사이트 이름 (제목, 공유 미리보기, 결과 이미지에 사용)
   SITE_NAME: '나만의 공감 빙고',

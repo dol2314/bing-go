@@ -29,7 +29,7 @@
    (예: `https://내사이트.vercel.app`, 끝에 `/` 없이)
 2. `index.html` · `create.html` · `play.html` 맨 위의 **`og:url`, `og:image`** 주소도 같이 바꾸기
    - 카카오톡 미리보기를 읽는 프로그램은 자바스크립트를 실행하지 못해서, 주소를 HTML에 직접 적어야 합니다.
-   - 각 파일에서 `gonggam-bingo.vercel.app` 를 찾아 바꾸면 됩니다.
+   - 각 파일에서 `bing-go-iota.vercel.app` 를 찾아 바꾸면 됩니다.
 3. `tools/og-maker.html` 을 열어 **이미지 저장** → 받은 파일을 `assets/img/og-default.png` 에 덮어쓰기
    (주소가 바뀌었으니 미리보기 이미지 속 주소도 바뀌어야 합니다)
 4. 카카오톡 공유를 쓸 거라면 아래 "카카오 공유 설정"
