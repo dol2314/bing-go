@@ -20,7 +20,7 @@ var CONFIG = {
 
   // 문의 페이지에 표시할 이메일 주소.
   // 비워두면 문의 페이지에 이메일 항목이 나타나지 않습니다.
-  CONTACT_EMAIL: '',
+  CONTACT_EMAIL: 'ehfzm000@gmail.com',
 
   // 구글 애드센스 게시자 ID (예: 'ca-pub-0000000000000000')
   ADSENSE_CLIENT: '',
