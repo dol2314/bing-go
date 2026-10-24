@@ -71,6 +71,11 @@
           접속 기록(IP 주소, 접속 시각 등)을 자체적으로 처리할 수 있습니다.
         </li>
         <li>
+          <b>Vercel Web Analytics</b> — 방문자 수 집계. 어느 페이지가 몇 번 열렸는지만
+          집계하며, 쿠키를 사용하지 않고 개인을 식별하거나 다른 사이트에서의 활동을
+          추적하지 않습니다.
+        </li>
+        <li>
           <b>jsDelivr</b> — 웹폰트(Pretendard) 전송
         </li>
         <li>
@@ -141,5 +146,7 @@
   <script src="assets/js/config.js"></script>
   <script src="assets/js/themes.js"></script>
   <script>Themes.apply('peach');</script>
+  <!-- Vercel 방문자 통계 (쿠키를 쓰지 않습니다. Vercel 대시보드에서 켜야 동작합니다) -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
