@@ -337,6 +337,93 @@ body {
 }
 
 /* =========================================================
+   모든 페이지 아래쪽 링크 (소개 / 개인정보처리방침 / 문의)
+   ========================================================= */
+
+.site-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--c-line);
+  text-align: center;
+  font-size: 13px;
+  color: var(--c-muted);
+}
+
+.site-footer nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-bottom: 12px;
+}
+
+.site-footer a {
+  color: var(--c-muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover { text-decoration: underline; }
+
+.site-footer .copyright { margin: 0; font-size: 12px; }
+
+/* =========================================================
+   글 페이지 (소개 / 개인정보처리방침 / 문의)
+   ========================================================= */
+
+.doc {
+  background: var(--c-board);
+  border: 2px solid var(--c-line);
+  border-radius: 18px;
+  padding: 24px 20px;
+}
+
+.doc h2 {
+  margin: 28px 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.doc h2:first-child { margin-top: 0; }
+
+.doc h3 {
+  margin: 20px 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.doc p,
+.doc li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--c-cell-text);
+}
+
+.doc p { margin: 0 0 12px; }
+
+.doc ul { margin: 0 0 12px; padding-left: 20px; }
+.doc li { margin-bottom: 6px; }
+
+.doc a { color: var(--c-accent); }
+
+.doc .meta {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-line);
+  font-size: 13px;
+  color: var(--c-muted);
+}
+
+.doc .callout {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  background: var(--c-bg);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
    메인 화면 (index.html)
    ========================================================= */
 

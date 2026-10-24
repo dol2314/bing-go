@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 관리자용 도구 페이지는 검색에 나오지 않게 합니다.
+Disallow: /tools/
+
+Sitemap: https://bing-go-iota.vercel.app/sitemap.xml

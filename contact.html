@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>문의 | 나만의 공감 빙고</title>
+  <meta name="description" content="나만의 공감 빙고에 대한 문의, 제보, 템플릿 제안을 보내는 방법입니다.">
+  <link rel="canonical" href="https://bing-go-iota.vercel.app/contact.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="나만의 공감 빙고">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://bing-go-iota.vercel.app/contact.html">
+  <meta property="og:title" content="문의 | 나만의 공감 빙고">
+  <meta property="og:description" content="나만의 공감 빙고에 대한 문의, 제보, 템플릿 제안을 보내는 방법입니다.">
+  <meta property="og:image" content="https://bing-go-iota.vercel.app/assets/img/og-default.png">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header class="topbar">
+      <h1>문의</h1>
+      <p class="hint">무엇이든 편하게 보내주세요</p>
+    </header>
+
+    <article class="doc">
+
+      <h2>이런 내용을 보내주세요</h2>
+      <ul>
+        <li>빙고판이나 결과 이미지가 깨져 보이는 문제</li>
+        <li>공유 링크가 열리지 않는 문제</li>
+        <li>새로 넣었으면 하는 빙고 주제 제안</li>
+        <li>특정 칸의 내용이 불쾌하거나 부적절하다는 신고</li>
+        <li>그 밖의 의견</li>
+      </ul>
+
+      <h2>보내는 방법</h2>
+
+      <div id="emailBlock" hidden>
+        <h3>이메일</h3>
+        <p id="emailLine"></p>
+      </div>
+
+      <h3>GitHub</h3>
+      <p>
+        이 사이트는 코드가 공개되어 있습니다.
+        버그 제보나 기능 제안은
+        <a href="https://github.com/dol2314/bing-go/issues" target="_blank" rel="noopener">GitHub 이슈</a>에
+        남겨주셔도 됩니다. GitHub 계정이 있으면 바로 글을 쓸 수 있습니다.
+      </p>
+
+      <h2>답변까지 걸리는 시간</h2>
+      <p>
+        혼자 운영하는 사이트라 확인이 늦을 수 있습니다.
+        보통 며칠 안에 확인하며, 내용에 따라 답변 없이 바로 반영되는 경우도 있습니다.
+      </p>
+
+      <div class="meta">
+        <p>
+          신고해주신 부적절한 빙고 내용은 확인 후 템플릿에서 제외합니다.
+          다만 이용자가 직접 만들어 공유한 빙고는 서버에 저장되지 않아 운영자가 삭제할 수 없습니다.
+          이 경우 해당 링크를 전달하지 않는 것이 유일한 방법입니다.
+        </p>
+      </div>
+
+    </article>
+
+    <footer class="site-footer">
+      <nav>
+        <a href="index.html">홈</a>
+        <a href="create.html">빙고 만들기</a>
+        <a href="about.html">소개</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="contact.html">문의</a>
+      </nav>
+      <p class="copyright">© 나만의 공감 빙고</p>
+    </footer>
+
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/themes.js"></script>
+  <script>
+    Themes.apply('peach');
+
+    // config.js 에 CONTACT_EMAIL 을 적으면 이메일 항목이 나타납니다.
+    (function () {
+      var email = (CONFIG.CONTACT_EMAIL || '').trim();
+      if (!email) { return; }
+
+      var link = document.createElement('a');
+      link.href = 'mailto:' + email;
+      link.textContent = email;
+
+      var line = document.getElementById('emailLine');
+      line.appendChild(link);
+      line.appendChild(document.createTextNode(' 로 보내주세요.'));
+      document.getElementById('emailBlock').hidden = false;
+    })();
+  </script>
+</body>
+</html>

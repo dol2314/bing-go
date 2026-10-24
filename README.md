@@ -74,6 +74,34 @@ KAKAO_JS_KEY: '여기에_복사한_JavaScript_키',
 
 ---
 
+## 애드센스 승인 준비
+
+승인 신청 전에 아래를 확인하세요. 코드로 해둔 것과 직접 해야 하는 것을 나눠 적었습니다.
+
+### 준비된 것
+
+- `about.html` (소개), `privacy.html` (개인정보처리방침), `contact.html` (문의) — 모든 페이지 아래 링크 연결됨
+- `robots.txt` — 크롤링 허용, `/tools/` 는 제외
+- `sitemap.xml` — 템플릿 페이지 포함 10개 주소
+- `ads.txt` — 게시자 ID만 넣으면 되도록 준비 (파일 안 설명 참고)
+- 각 페이지 `canonical` 태그
+
+### 직접 해야 하는 것
+
+1. **문의 이메일 넣기** — `config.js` 의 `CONTACT_EMAIL` 에 주소를 적으면 문의 페이지에 나타납니다.
+   비워두면 GitHub 이슈만 안내됩니다.
+2. **자체 도메인 연결** — `*.vercel.app` 주소로 신청했다가 반려된 사례가 있습니다.
+   도메인을 사서 Vercel → Settings → Domains 에서 연결한 뒤,
+   이 저장소에서 `bing-go-iota.vercel.app` 을 전부 새 주소로 바꾸세요.
+   (`config.js`, 각 HTML 의 og 태그와 canonical, `robots.txt`, `sitemap.xml`)
+3. **구글 서치 콘솔 등록** — [search.google.com/search-console](https://search.google.com/search-console)
+   에서 사이트를 등록하고 `sitemap.xml` 을 제출합니다.
+4. **읽을 콘텐츠 늘리기** — 가장 중요합니다.
+   애드센스의 흔한 반려 사유가 "가치가 별로 없는 콘텐츠"인데,
+   빙고판과 버튼만 있는 사이트는 여기에 걸리기 쉽습니다.
+   템플릿 해설, 빙고 주제 모음 같은 글을 직접 쓰는 것이 가장 확실합니다.
+5. **애드센스 신청** — [adsense.google.com](https://adsense.google.com)
+
 ## 광고 넣기
 
 광고 자리는 **빙고판과 버튼 아래**에만 있습니다. 지금은 꺼져 있어서 높이 0으로 보이지 않습니다.
