@@ -16,7 +16,7 @@ var CONFIG = {
 
   // 카카오 JavaScript 키 (README 의 "카카오 공유 설정" 참고)
   // 비워두면 카카오톡 공유 버튼이 자동으로 숨겨집니다.
-  KAKAO_JS_KEY: '',
+  KAKAO_JS_KEY: '237dc30bd48a24ba9bca6f89abb2b81d',
 
   // 구글 애드센스 게시자 ID (예: 'ca-pub-0000000000000000')
   ADSENSE_CLIENT: '',
