@@ -3,75 +3,75 @@
   검색엔진에게 알려줄 페이지 목록입니다.
   빙고 템플릿을 추가하면 아래에 <url> 한 덩어리를 복사해서
   play.html?t=새id 주소를 넣어주세요.
-  배포 주소가 바뀌면 bing-go-iota.vercel.app 을 전부 바꿔야 합니다.
+  배포 주소가 바뀌면 gonggam-bingo.vercel.app 을 전부 바꿔야 합니다.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/</loc>
+    <loc>https://gonggam-bingo.vercel.app/</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/create.html</loc>
+    <loc>https://gonggam-bingo.vercel.app/create.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/play.html?t=univ</loc>
+    <loc>https://gonggam-bingo.vercel.app/play.html?t=univ</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/play.html?t=office</loc>
+    <loc>https://gonggam-bingo.vercel.app/play.html?t=office</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/play.html?t=ajae</loc>
+    <loc>https://gonggam-bingo.vercel.app/play.html?t=ajae</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/play.html?t=solo</loc>
+    <loc>https://gonggam-bingo.vercel.app/play.html?t=solo</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/play.html?t=home</loc>
+    <loc>https://gonggam-bingo.vercel.app/play.html?t=home</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/about.html</loc>
+    <loc>https://gonggam-bingo.vercel.app/about.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/privacy.html</loc>
+    <loc>https://gonggam-bingo.vercel.app/privacy.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://bing-go-iota.vercel.app/contact.html</loc>
+    <loc>https://gonggam-bingo.vercel.app/contact.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

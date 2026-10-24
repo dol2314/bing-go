@@ -29,7 +29,7 @@
    (예: `https://내사이트.vercel.app`, 끝에 `/` 없이)
 2. `index.html` · `create.html` · `play.html` 맨 위의 **`og:url`, `og:image`** 주소도 같이 바꾸기
    - 카카오톡 미리보기를 읽는 프로그램은 자바스크립트를 실행하지 못해서, 주소를 HTML에 직접 적어야 합니다.
-   - 각 파일에서 `bing-go-iota.vercel.app` 를 찾아 바꾸면 됩니다.
+   - 각 파일에서 `gonggam-bingo.vercel.app` 를 찾아 바꾸면 됩니다.
 3. `tools/og-maker.html` 을 열어 **이미지 저장** → 받은 파일을 `assets/img/og-default.png` 에 덮어쓰기
    (주소가 바뀌었으니 미리보기 이미지 속 주소도 바뀌어야 합니다)
 4. 카카오톡 공유를 쓸 거라면 아래 "카카오 공유 설정"
@@ -92,7 +92,7 @@ KAKAO_JS_KEY: '여기에_복사한_JavaScript_키',
    비워두면 GitHub 이슈만 안내됩니다.
 2. **자체 도메인 연결** — `*.vercel.app` 주소로 신청했다가 반려된 사례가 있습니다.
    도메인을 사서 Vercel → Settings → Domains 에서 연결한 뒤,
-   이 저장소에서 `bing-go-iota.vercel.app` 을 전부 새 주소로 바꾸세요.
+   이 저장소에서 `gonggam-bingo.vercel.app` 을 전부 새 주소로 바꾸세요.
    (`config.js`, 각 HTML 의 og 태그와 canonical, `robots.txt`, `sitemap.xml`)
 3. **구글 서치 콘솔 등록** — [search.google.com/search-console](https://search.google.com/search-console)
    에서 사이트를 등록하고 `sitemap.xml` 을 제출합니다.
